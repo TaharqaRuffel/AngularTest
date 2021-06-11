@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Couleur} from "../../../modeles/couleur";
+import {CouleurService} from "../../../services/couleur.service";
 
 @Component({
   selector: 'app-form-couleurs',
@@ -10,13 +11,14 @@ export class FormCouleursComponent implements OnInit {
 
   couleurform = new Couleur(0,'')
 
-  constructor() { }
+  constructor(private serviceCouleur:CouleurService) { }
 
   ngOnInit(): void {
   }
 
   ajoutCouleur(couleur:Couleur){
-    console.log(couleur);
+    this.serviceCouleur.addCouleur(couleur);
+console.log(this.serviceCouleur.getCouleurs())
   }
 
 }
