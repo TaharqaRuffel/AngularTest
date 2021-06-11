@@ -1,4 +1,4 @@
-export class Couleur {
+export class Region {
   id:number;
   nom:string;
 
