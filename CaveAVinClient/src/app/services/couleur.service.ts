@@ -18,13 +18,22 @@ export class CouleurService {
     return this.couleurs;
   }
 
-  deleteCouleur(index:number){
+  getCouleur(index:number):Couleur{
+    return this.couleurs[index];
+  }
+
+  deleteCouleur(index:number):Couleur[]{
     this.couleurs.splice(index,1);
     return this.couleurs;
   }
 
-  addCouleur(newCouleur:Couleur){
+  addCouleur(newCouleur:Couleur):Couleur[]{
     this.couleurs.push(newCouleur);
+    return this.couleurs;
+  }
+
+  editCouleur(index:number,modifiedCouleur:Couleur):Couleur[]{
+    this.couleurs[index] = modifiedCouleur;
     return this.couleurs;
   }
 
