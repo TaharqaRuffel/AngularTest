@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BouteillesService} from "../../services/bouteilles.service";
+import {Bouteille} from "../../modeles/bouteille";
+import {Region} from "../../modeles/region";
+import {Couleur} from "../../modeles/couleur";
 
 @Component({
   selector: 'app-bouteille',
@@ -8,7 +11,7 @@ import {BouteillesService} from "../../services/bouteilles.service";
 })
 export class BouteilleComponent implements OnInit {
 
-  @Input() bouteille = {id : 0 ,nom:'Pas de bouteille','couleur' : 'noir', 'region':'DTC','petillant':false,'millesime':'2021','quantite':0};
+  @Input() bouteille:Bouteille = new Bouteille( 0 ,'Pas de bouteille',new Region(0,''),new Couleur(0,''),false,'2021',0);
   @Input()index = 0;
 
   constructor(private serviceBouteilles: BouteillesService ) { }
