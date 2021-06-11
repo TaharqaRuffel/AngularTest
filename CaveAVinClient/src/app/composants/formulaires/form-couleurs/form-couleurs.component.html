@@ -3,7 +3,7 @@
   <hr />
   <div class="row justify-content-md-center">
     <div>
-      <form [formGroup]="couleurform" (ngSubmit)="maFonction()" #formulaireCouleur="ngForm">
+      <form (ngSubmit)="ajoutCouleur(formulaireCouleur.value)" #formulaireCouleur="ngForm">
 
         <div>Valeurs du formulaire : {{formulaireCouleur.value | json}}</div>
         <div>Valeurs du modèle : {{couleurform | json}}</div>

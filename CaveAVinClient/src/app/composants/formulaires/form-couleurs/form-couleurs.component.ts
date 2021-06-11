@@ -8,15 +8,15 @@ import {Couleur} from "../../../modeles/couleur";
 })
 export class FormCouleursComponent implements OnInit {
 
-  constructor() { }
-
   couleurform = new Couleur(0,'')
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  ajoutCouleur(){
-
+  ajoutCouleur(couleur:Couleur){
+    console.log(couleur);
   }
 
 }
