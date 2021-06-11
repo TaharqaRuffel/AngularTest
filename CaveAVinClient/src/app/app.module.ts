@@ -9,6 +9,8 @@ import { RegionComponent } from './composants/region/region.component';
 import { BouteillesComponent } from './composants/bouteilles/bouteilles.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCouleursComponent } from './composants/formulaires/form-couleurs/form-couleurs.component';
+import { FormRegionComponent } from './composants/formulaires/form-region/form-region.component';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { FormCouleursComponent } from './composants/formulaires/form-couleurs/fo
     RegionComponent,
     BouteillesComponent,
     FormCouleursComponent,
+    FormRegionComponent,
   ],
   imports: [
     BrowserModule,
