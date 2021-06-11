@@ -1,17 +1,18 @@
-<p>form-region works!</p>
+
 <div class="container text-center">
-  <h2>Le composant C13</h2>
-  <hr />    <div class="row justify-content-md-center">
+  <p>form-region works!</p>
+  <h2>Le formulaire de la région</h2>
+  <hr />
+  <div class="row justify-content-md-center">
   <div>
-    <form [formGroup]="regionForm">
+    <form (submit)="ajoutRegion(regionForm.value)" [formGroup]="regionForm">
       <div>Mes données de formulaire : {{regionForm.value | json}}</div>
       <hr />
       <div class="form-group">
         <label>Nom : </label>
         <input type="text" class="form-control" name="nom" formControlName="nom">
       </div>
-      <button type="submit">
-        Envoyer</button>
+      <button type="submit">Envoyer</button>
     </form>
     <hr />
   </div>
