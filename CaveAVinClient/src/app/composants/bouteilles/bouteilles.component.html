@@ -45,8 +45,7 @@
     </div>
     <div *ngFor=" let bouteille of bouteilles, let index = index ">
       <tr>
-        <app-bouteille [bouteille]= bouteille index=index></app-bouteille>
-        <td><button (click)="supprimerBouteille(index)" >Supprimer</button></td>
+        <app-bouteille [bouteille]= bouteille [index]=index></app-bouteille>
       </tr>
     </div>
   </table>
