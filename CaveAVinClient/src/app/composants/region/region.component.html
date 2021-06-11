@@ -1,1 +1,12 @@
-<p>region works!</p>
+<div class="container">
+  <h2>Région des vins : </h2>
+  <hr/>
+  <div class="menu">
+    <p class="menu-label">Les différentes régions : </p>
+    <ul class="menu-list" *ngFor="let region of regions">
+      <li>
+        {{region}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
+  regions = [
+    'Bretagne',
+    'Normandie',
+    'Pays de la Loire'
+  ];
 
   constructor() { }
 

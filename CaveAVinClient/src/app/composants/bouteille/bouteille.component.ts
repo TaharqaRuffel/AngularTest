@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-bouteille',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bouteille.component.css']
 })
 export class BouteilleComponent implements OnInit {
+
+  @Input() bouteille = {id : 0 ,nom:'Pas de bouteille','couleur' : 'noir', 'region':'DTC','petillant':false,'millesime':'2021','quantite':0};
 
   constructor() { }
 

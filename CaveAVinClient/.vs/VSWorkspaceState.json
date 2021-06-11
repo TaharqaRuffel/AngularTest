@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\composants",
+    "\\src\\app\\composants\\bouteille",
+    "\\src\\app\\composants\\couleur",
+    "\\src\\app\\composants\\generations",
+    "\\src\\app\\composants\\region"
   ],
+  "SelectedNode": "\\src\\index.html",
   "PreviewInSolutionExplorer": false
 }
