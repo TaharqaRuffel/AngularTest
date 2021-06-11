@@ -1,0 +1,27 @@
+
+<div class="container text-center">
+  <hr />
+  <div class="row justify-content-md-center">
+    <div>
+      <form [formGroup]="couleurform" (ngSubmit)="maFonction()" #formulaireCouleur="ngForm">
+
+        <div>Valeurs du formulaire : {{formulaireCouleur.value | json}}</div>
+        <div>Valeurs du modèle : {{couleurform | json}}</div>
+
+        <hr />
+        <div class="form-group">
+          <label >Id : </label>
+          <input type="number" class="form-control"
+                 name="id" [ngModel]="couleurform.id">
+
+          <label >Couleur : </label>
+          <input type="text" class="form-control"
+                 name="nom" [ngModel]="couleurform.nom">
+
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+      <hr />
+    </div>
+  </div>
+</div>
