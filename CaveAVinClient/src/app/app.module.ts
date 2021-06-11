@@ -7,7 +7,7 @@ import { BouteilleComponent } from './composants/bouteille/bouteille.component';
 import { CouleurComponent } from './composants/couleur/couleur.component';
 import { RegionComponent } from './composants/region/region.component';
 import { BouteillesComponent } from './composants/bouteilles/bouteilles.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCouleursComponent } from './composants/formulaires/form-couleurs/form-couleurs.component';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { FormCouleursComponent } from './composants/formulaires/form-couleurs/fo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{provide:LOCALE_ID, useValue:'fr'}],
   bootstrap: [AppComponent]
