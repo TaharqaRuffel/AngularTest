@@ -5,45 +5,50 @@
   <div class="row justify-content-md-center">
     <div>
       <form (submit)="ajoutBouteille(bouteilleForm.value)" [formGroup]="bouteilleForm">
-        <div>Mes données de formulaire : {{bouteilleForm.value | json}}</div>
+        <div>Mes données de formulaire{{bouteilleForm.value | json}}</div>
         <hr/>
         <div class="form-group d-flex flex-row mb-2">
-          <label for="nom">Nom : </label>
+          <label class="form-label" for="nom">Nom</label>
           <input type="text" class="form-control" name="nom" id="nom" formControlName="nom">
         </div>
         <div class="form-group d-flex flex-row mb-2">
-          <label for="region">Région : </label>
-          <select class="form-control" name="region" id="region" formControlName="region">
-            <option *ngFor="let region of listeRegions" [value]="region.id">{{region.nom}}</option>
-          </select>
-          <button class="btn btn-primary ms-2" *ngIf="!isFormRegion" (click)="switchFormRegion()">Ajouter Region</button>
+          <label class="form-label" for="region">Région</label>
+          <div class="d-flex flex-row flex-fill">
+            <select class="form-control" name="region" id="region" formControlName="region">
+              <option *ngFor="let region of listeRegions" [value]="region.id">{{region.nom}}</option>
+            </select>
+            <button class="btn btn-primary ms-2" *ngIf="!isFormRegion" (click)="switchFormRegion()">Ajouter Region
+            </button>
+          </div>
         </div>
         <div *ngIf="isFormRegion" class="ms-xxl-5">
           <app-form-region (soumis)="isFormRegion=!$event"></app-form-region>
         </div>
-
-          <div class="form-group d-flex flex-row mb-2">
-            <label for="couleur" >Couleur : </label>
+        <div class="form-group d-flex flex-row mb-2">
+          <label class="form-label" for="couleur">Couleur</label>
+          <div class="d-flex flex-row flex-fill">
             <select class="form-control" name="couleur" id="couleur" formControlName="couleur">
               <option *ngFor="let couleur of listeCouleurs" [value]="couleur.id">{{couleur.nom}}</option>
             </select>
-            <button class="btn btn-primary ms-2" *ngIf="!isFormCouleur" (click)="switchFormCouleur()">Ajouter Couleur</button>
+            <button class="btn btn-primary ms-2" *ngIf="!isFormCouleur" (click)="switchFormCouleur()">Ajouter Couleur
+            </button>
           </div>
+        </div>
         <div *ngIf="isFormCouleur" class="ms-xxl-5">
           <app-form-couleurs (soumis)="isFormCouleur=!$event"></app-form-couleurs>
         </div>
 
 
         <div class="form-group d-flex flex-row mb-2">
-          <label for="petillant">Petillant : </label>
+          <label class="form-label" for="petillant">Petillant</label>
           <input type="checkbox" class="form-check" name="petillant" id="petillant" formControlName="petillant">
         </div>
         <div class="form-group d-flex flex-row mb-2">
-          <label for="millesime">Millesime : </label>
+          <label class="form-label" for="millesime">Millesime</label>
           <input type="text" class="form-control" name="millesime" id="millesime" formControlName="millesime">
         </div>
         <div class="form-group d-flex flex-row mb-2">
-          <label for="quantite">Quantite : </label>
+          <label class="form-label" for="quantite">Quantite</label>
           <input type="number" class="form-control" name="quantite" id="quantite" formControlName="quantite">
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
