@@ -15,7 +15,7 @@ export class RegionService {
 
   constructor() { }
 
-  getRegions(){
+  getRegions():Region[]{
     return this.regions;
   }
 

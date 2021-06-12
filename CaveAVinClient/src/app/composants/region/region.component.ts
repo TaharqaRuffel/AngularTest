@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RegionService} from "../../services/region.service";
 
 @Component({
   selector: 'app-region',
@@ -6,13 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
-  regions = [
-    'Bretagne',
-    'Normandie',
-    'Pays de la Loire'
-  ];
+  regions = [] as any;
 
-  constructor() { }
+  constructor(private  serviceRegion:RegionService) {
+    this.regions = serviceRegion.getRegions();
+  }
 
   ngOnInit(): void {
   }

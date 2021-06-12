@@ -1,30 +1,30 @@
-
-
-  <section class="container">
-    <h1 class="bleu">Liste des bouteilles<span class="badge btn-primary gros pull-right">{{bouteilles.length}} </span></h1>
-    <br>
-    <form action="lister" method="GET" class="form-horizontal">
-      <div class="form-group" id="blocFiltre">
-        <label id="labelFiltre" for="filtre" class="col-xs-2 control-label">Filtre :</label>
-        <div class="col-xs-10">
-          <div class="input-group">
+<section class="container">
+  <h1 class="bleu">Liste des bouteilles<span class="badge btn-primary gros pull-right">{{bouteilles.length}} </span>
+  </h1>
+  <br>
+  <form action="lister" method="GET" class="form-horizontal">
+    <div class="form-group" id="blocFiltre">
+      <label id="labelFiltre" for="filtre" class="col-xs-2 control-label">Filtre :</label>
+      <div class="col-xs-10">
+        <div class="input-group">
 			      <span class="input-group-btn">
-			      	<a href="lister" th:class= "${(param.filtre != null) and (param.filtre[0] != '') ? 'btn btn-warning' : 'btn btn-warning disabled'}">
+			      	<a href="lister"
+                 th:class="${(param.filtre != null) and (param.filtre[0] != '') ? 'btn btn-warning' : 'btn btn-warning disabled'}">
  			      	<span class="glyphicon glyphicon-trash"></span></a>
 			      </span>
-            <input type="search" name="filtre"  placeholder="Filtre sur le nom, la couleur, la région du vin ..."  class="form-control"
-                   th:value="${param.filtre }" />
-            <span class="input-group-btn">
+          <input type="search" name="filtre" placeholder="Filtre sur le nom, la couleur, la région du vin ..."
+                 class="form-control"
+                 th:value="${param.filtre }"/>
+          <span class="input-group-btn">
 			        <button class="btn btn-info" type="submit">Envoyer</button>
 			      </span>
-          </div><!-- /input-group -->
+        </div><!-- /input-group -->
 
-        </div>
       </div>
-    </form>
-    <br>
+    </div>
+  </form>
+  <br>
   <table class="table table-hover table-striped">
-    <div>
     <tr>
       <th></th>
       <th><a href="trier?par=nA"><span class="glyphicon glyphicon-menu-down"></span></a> Nom <a
@@ -42,11 +42,18 @@
       <th></th>
       <th></th>
     </tr>
-    </div>
-    <div *ngFor=" let bouteille of bouteilles, let index = index ">
-      <tr>
-        <app-bouteille [bouteille]= bouteille [index]=index></app-bouteille>
-      </tr>
-    </div>
+    <tr *ngFor=" let bouteille of bouteilles, let index = index ">
+      <!--<app-bouteille [bouteille]= bouteille [index]=index></app-bouteille>-->
+      <td> {{bouteille.id }}</td>
+      <td> {{bouteille.nom }}</td>
+      <td> {{bouteille.millesime }}</td>
+      <td> {{bouteille.petillant }}</td>
+      <td> {{bouteille.quantite }}</td>
+      <td> {{bouteille.couleur.nom }}</td>
+      <td> {{bouteille.region.nom }}</td>
+      <td>
+        <button (click)="supprimerBouteille(index)">Supprimer</button>
+      </td>
+    </tr>
   </table>
 </section>

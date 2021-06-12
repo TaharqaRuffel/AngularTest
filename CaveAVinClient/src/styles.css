@@ -53,3 +53,7 @@ body {
 .input-group-btn .glyphicon{
   line-height : inherit;
 }
+
+label{
+  width: 100px;
+}

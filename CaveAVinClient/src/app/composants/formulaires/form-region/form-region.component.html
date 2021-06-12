@@ -1,20 +1,15 @@
-
 <div class="container text-center">
-  <p>form-region works!</p>
-  <h2>Le formulaire de la région</h2>
-  <hr />
   <div class="row justify-content-md-center">
-  <div>
-    <form (submit)="ajoutRegion(regionForm.value)" [formGroup]="regionForm">
-      <div>Mes données de formulaire : {{regionForm.value | json}}</div>
-      <hr />
-      <div class="form-group">
-        <label>Nom : </label>
-        <input type="text" class="form-control" name="nom" formControlName="nom">
-      </div>
-      <button type="submit">Envoyer</button>
-    </form>
-    <hr />
+    <div>
+      <form class="is-flex is-flex-direction-row" (submit)="onSubmit(regionForm.value)" [formGroup]="regionForm">
+        <div class="form-group is-flex is-flex-direction-row">
+          <label>Nom : </label>
+          <input type="text" class="form-control" name="nom" formControlName="nom">
+        </div>
+        <button class="btn btn-secondary ms-2" type="submit" (click)="onCancelClick()">Annuler</button>
+        <button class="btn btn-primary ms-2" type="submit">Envoyer</button>
+      </form>
+      <hr/>
+    </div>
   </div>
-</div>
 </div>

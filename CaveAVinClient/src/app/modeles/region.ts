@@ -6,4 +6,5 @@ export class Region {
     this.id = id;
     this.nom = nom;
   }
+
 }

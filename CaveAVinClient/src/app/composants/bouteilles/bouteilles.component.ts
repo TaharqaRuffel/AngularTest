@@ -17,5 +17,8 @@ export class BouteillesComponent implements OnInit {
     this.bouteilles = this.serviceBouteilles.getBouteilles();
   }
 
+  supprimerBouteille(index:number){
+    this.serviceBouteilles.deleteBouteille(index);
+  }
 
 }

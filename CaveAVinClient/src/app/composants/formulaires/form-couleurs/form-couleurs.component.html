@@ -1,27 +1,15 @@
 
 <div class="container text-center">
-  <p>form-couleur works!</p>
-  <h2>Le formulaire de la couleur</h2>
-  <hr />
   <div class="row justify-content-md-center">
     <div>
-      <form (ngSubmit)="ajoutCouleur(formulaireCouleur.value)" #formulaireCouleur="ngForm">
-
-        <div>Valeurs du formulaire : {{formulaireCouleur.value | json}}</div>
-        <div>Valeurs du modèle : {{couleurform | json}}</div>
-
-        <hr />
-        <div class="form-group">
-          <label >Id : </label>
-          <input type="number" class="form-control"
-                 name="id" [ngModel]="couleurform.id">
-
-          <label >Couleur : </label>
-          <input type="text" class="form-control"
-                 name="nom" [ngModel]="couleurform.nom">
-
+      <form class="d-flex flex-row align-self-stretch"(ngSubmit)="onSubmit(formulaireCouleur.value)" #formulaireCouleur="ngForm">
+        <div class="form-group d-flex flex-row mb-2 me-2 h-100 align-self-stretch">
+          <label for="nom" >Couleur : </label>
+          <input type="text" class="form-control h-100 align-self-stretch"
+                 name="nom"  id="nom" [ngModel]="couleurform.nom">
         </div>
-        <button type="submit">Envoyer</button>
+        <button class="btn btn-secondary ms-2" type="submit" (click)="onCancelClick()">Annuler</button>
+        <button class="btn btn-primary ms-2" type="submit" >Envoyer</button>
       </form>
       <hr />
     </div>
