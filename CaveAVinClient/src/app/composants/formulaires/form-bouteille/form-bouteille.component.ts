@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Region} from "../../../modeles/region";
 import {Bouteille} from "../../../modeles/bouteille";
 import {RegionService} from "../../../services/region.service";
@@ -16,19 +16,22 @@ export class FormBouteilleComponent implements OnInit {
 
   bouteilleForm = new FormGroup({
     id : new FormControl(''),
-    nom : new FormControl(''),
-    region : new FormControl(''),
-    couleur : new FormControl(''),
+    nom : new FormControl('',[
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(50)
+    ]),
+    region : new FormControl('',Validators.required),
+    couleur : new FormControl('',Validators.required),
     petillant : new FormControl(''),
-    millesime : new FormControl(''),
-    quantite : new FormControl('')
+    millesime : new FormControl('',[Validators.required,Validators.pattern("[0-2]{1}[0-9]{3}")]),
+    quantite : new FormControl('',Validators.required)
   })
 
   listeCouleurs:Couleur[] = [];
   listeRegions:Region[] = [];
   isFormCouleur:boolean = false;
   isFormRegion:boolean = false;
-  isSubmited: any;
 
   constructor(private serviceBouteille: BouteillesService,
               private serviceCouleur:CouleurService,
@@ -40,6 +43,12 @@ export class FormBouteilleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    if(this.bouteilleForm.valid){
+      this.ajoutBouteille(this.bouteilleForm.value);
+    }
   }
 
   ajoutBouteille(bouteille:Bouteille):void{

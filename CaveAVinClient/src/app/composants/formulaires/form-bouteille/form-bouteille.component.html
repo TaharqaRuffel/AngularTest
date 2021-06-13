@@ -4,17 +4,21 @@
   <hr/>
   <div class="row justify-content-md-center">
     <div>
-      <form (submit)="ajoutBouteille(bouteilleForm.value)" [formGroup]="bouteilleForm">
+      <form (submit)="onSubmit()" [formGroup]="bouteilleForm">
         <div>Mes données de formulaire{{bouteilleForm.value | json}}</div>
         <hr/>
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="nom">Nom</label>
-          <input type="text" class="form-control" name="nom" id="nom" formControlName="nom">
+          <input type="text" class="form-control" name="nom" id="nom" formControlName="nom"
+                 [class.is-invalid]="bouteilleForm.controls.nom.invalid"
+                 [class.is-valid]="bouteilleForm.controls.nom.valid">
         </div>
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="region">Région</label>
           <div class="d-flex flex-row flex-fill">
-            <select class="form-control" name="region" id="region" formControlName="region">
+            <select class="form-control" name="region" id="region" formControlName="region"
+                    [class.is-invalid]="bouteilleForm.controls.region.invalid"
+                    [class.is-valid]="bouteilleForm.controls.region.valid">
               <option *ngFor="let region of listeRegions" [value]="region.id">{{region.nom}}</option>
             </select>
             <button class="btn btn-primary ms-2" *ngIf="!isFormRegion" (click)="switchFormRegion()">Ajouter Region
@@ -27,7 +31,9 @@
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="couleur">Couleur</label>
           <div class="d-flex flex-row flex-fill">
-            <select class="form-control" name="couleur" id="couleur" formControlName="couleur">
+            <select class="form-control" name="couleur" id="couleur" formControlName="couleur"
+                    [class.is-invalid]="bouteilleForm.controls.couleur.invalid"
+                    [class.is-valid]="bouteilleForm.controls.couleur.valid">
               <option *ngFor="let couleur of listeCouleurs" [value]="couleur.id">{{couleur.nom}}</option>
             </select>
             <button class="btn btn-primary ms-2" *ngIf="!isFormCouleur" (click)="switchFormCouleur()">Ajouter Couleur
@@ -38,20 +44,25 @@
           <app-form-couleurs (soumis)="isFormCouleur=!$event"></app-form-couleurs>
         </div>
 
-
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="petillant">Petillant</label>
-          <input type="checkbox" class="form-check" name="petillant" id="petillant" formControlName="petillant">
+          <input type="checkbox" class="form-check" name="petillant" id="petillant" formControlName="petillant"
+                 [class.is-invalid]="bouteilleForm.controls.petillant.invalid"
+                 [class.is-valid]="bouteilleForm.controls.petillant.valid">
         </div>
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="millesime">Millesime</label>
-          <input type="text" class="form-control" name="millesime" id="millesime" formControlName="millesime">
+          <input type="text" class="form-control" name="millesime" id="millesime" formControlName="millesime"
+                 [class.is-invalid]="bouteilleForm.controls.millesime.invalid"
+                 [class.is-valid]="bouteilleForm.controls.millesime.valid">
         </div>
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="quantite">Quantite</label>
-          <input type="number" class="form-control" name="quantite" id="quantite" formControlName="quantite">
+          <input type="number" class="form-control" name="quantite" id="quantite" formControlName="quantite"
+                 [class.is-invalid]="bouteilleForm.controls.quantite.invalid"
+                 [class.is-valid]="bouteilleForm.controls.quantite.valid">
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" class="btn btn-primary" >Envoyer</button>
       </form>
       <hr/>
     </div>

@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegionService} from "../../../services/region.service";
 import {Region} from "../../../modeles/region";
-
 @Component({
   selector: 'app-form-region',
   templateUrl: './form-region.component.html',
