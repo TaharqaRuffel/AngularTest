@@ -1,9 +1,43 @@
+<div class="container-fluid">
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Id</label>
+    <p>{{bouteille.id }}</p>
+  </div>
 
-<td> {{bouteille.id }}</td>
-<td> {{bouteille.nom }}</td>
-<td> {{bouteille.millesime }}</td>
-<td> {{bouteille.petillant }}</td>
-<td> {{bouteille.quantite }}</td>
-<td> {{bouteille.couleur }}</td>
-<td> {{bouteille.region }}</td>
-<td><button (click)="supprimerBouteille()" >Supprimer</button></td>
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Nom</label>
+    <p>{{bouteille.nom }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Millesime</label>
+    <p>{{bouteille.millesime }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Petillant</label>
+    <p>{{bouteille.petillant }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Quantité</label>
+    <p>{{bouteille.quantite }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Couleur</label>
+    <p>{{bouteille.couleur.nom }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Région</label>
+    <p>{{bouteille.region.nom }}</p>
+  </div>
+
+  <div class="is-flex is-flex-direction-row">
+    <label class="col-form-label has-text-weight-bold">Actions</label>
+    <button class="btn btn-primary" (click)="supprimerBouteille()">Supprimer</button>
+  </div>
+
+
+</div>
