@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {FormBouteilleComponent} from "./composants/formulaires/form-bouteille/form-bouteille.component";
 import {AccueilComponent} from "./composants/accueil/accueil.component";
+import {BouteillesComponent} from "./composants/bouteilles/bouteilles.component";
 
 const routes: Routes = [
+  {path: '', component : AccueilComponent},
+  {path: 'bouteille/liste', component : BouteillesComponent},
   {path: 'bouteille/ajouter', component : FormBouteilleComponent},
-  {path: '', component : AccueilComponent}
+
 ];
 
 @NgModule({
