@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegionService} from "../../../services/region.service";
 import {Region} from "../../../modeles/region";
-import {Couleur} from "../../../modeles/couleur";
 
 @Component({
   selector: 'app-form-region',
@@ -13,7 +12,6 @@ export class FormRegionComponent implements OnInit {
   @Output() soumis = new EventEmitter();
 
   isCancel =false;
-  isValidNom = true;
 
   constructor(private serviceRegion: RegionService) { }
 
@@ -31,8 +29,6 @@ export class FormRegionComponent implements OnInit {
     }else if(this.regionForm.valid){
       this.ajoutRegion(region);
       this.soumis.emit(true);
-    }else{
-      this.isValidNom = this.regionForm.controls.nom.valid;
     }
 
   }
@@ -46,11 +42,4 @@ export class FormRegionComponent implements OnInit {
     this.isCancel =true;
   }
 
-  submitClassNom(){
-    let cssClass:string = "form-control"
-    if(!this.isValidNom){
-      cssClass += " is-invalid"
-    }
-    return cssClass;
-  }
 }
