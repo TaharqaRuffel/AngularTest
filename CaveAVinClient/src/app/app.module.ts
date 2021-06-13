@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCouleursComponent } from './composants/formulaires/form-couleurs/form-couleurs.component';
 import { FormRegionComponent } from './composants/formulaires/form-region/form-region.component';
 import { FormBouteilleComponent } from './composants/formulaires/form-bouteille/form-bouteille.component';
+import { AccueilComponent } from './composants/accueil/accueil.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormBouteilleComponent } from './composants/formulaires/form-bouteille/
     FormCouleursComponent,
     FormRegionComponent,
     FormBouteilleComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,
