@@ -1,18 +1,20 @@
-<section class="container">
-  <h1 class="bleu">Liste des bouteilles<span class="badge btn-primary gros pull-right">{{bouteilles.length}} </span>
-  </h1>
+<section class="container-fluid">
+  <div class="d-flex bd-highlight mb-3">
+    <h1 class="me-auto p-2 bd-highlight bleu">Liste des bouteilles</h1>
+    <span class="p-2 bd-highlight badge btn-primary gros pull-right">{{bouteilles.length}}</span>
+  </div>
   <br>
   <form action="lister" method="GET" class="form-horizontal">
-    <div class="form-group" id="blocFiltre">
-      <label id="labelFiltre" for="filtre" class="col-xs-2 control-label">Filtre :</label>
-      <div class="col-xs-10">
+    <div class="form-group is-flex" id="blocFiltre">
+      <label id="labelFiltre" for="filtre" class="col-xs-2 col-form-label">Filtre :</label>
+      <div class="flex-fill">
         <div class="input-group">
 			      <span class="input-group-btn">
 			      	<a href="lister"
                  th:class="${(param.filtre != null) and (param.filtre[0] != '') ? 'btn btn-warning' : 'btn btn-warning disabled'}">
  			      	<span class="glyphicon glyphicon-trash"></span></a>
 			      </span>
-          <input type="search" name="filtre" placeholder="Filtre sur le nom, la couleur, la région du vin ..."
+          <input type="search" name="filtre" id="filtre" placeholder="Filtre sur le nom, la couleur, la région du vin ..."
                  class="form-control"
                  th:value="${param.filtre }"/>
           <span class="input-group-btn">
