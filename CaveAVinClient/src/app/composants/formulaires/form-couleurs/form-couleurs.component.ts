@@ -19,7 +19,7 @@ export class FormCouleursComponent implements OnInit {
   }
 
   public onSubmit(couleur:Couleur):void{
-    if (!this.isCancel){
+    if (!this.isCancel ){
       this.ajoutCouleur(couleur);
     }
     this.soumis.emit(true);

@@ -6,10 +6,10 @@
         <div class="form-group d-flex flex-row mb-2 me-2 h-100 align-self-stretch">
           <label for="nom" >Couleur : </label>
           <input type="text" class="form-control h-100 align-self-stretch"
-                 name="nom"  id="nom" [ngModel]="couleurform.nom">
+                 name="nom"  id="nom" [ngModel]="couleurform.nom" required minlength="2" maxlength="50">
         </div>
         <button class="btn btn-secondary ms-2" type="submit" (click)="onCancelClick()">Annuler</button>
-        <button class="btn btn-primary ms-2" type="submit" >Envoyer</button>
+        <button class="btn btn-primary ms-2" type="submit" [disabled]="formulaireCouleur.invalid">Envoyer</button>
       </form>
       <hr />
     </div>
