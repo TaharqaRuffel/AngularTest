@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Region} from "../modeles/region";
+import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
+
+const URL_GET_REGIONS = 'http://localhost:8080/regions';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +17,23 @@ export class RegionService {
     new Region( 5 ,'Bourgogne')
   ]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  deserializeRegion(object:any):Region{
+
+    let newRegion = new Region();
+    newRegion.id = object.id;
+    newRegion.nom = object.nom;
+
+    return newRegion;
+  }
+
+  getRegionsFromAPI(){
+    return this.http.get<Region[]>(URL_GET_REGIONS);
+  }
 
   getRegions():Region[]{
-    return this.regions;
+     return this.regions;
   }
 
   getRegion(index:number):Region{

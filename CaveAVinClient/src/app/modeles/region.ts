@@ -1,10 +1,10 @@
 export class Region {
-  id:number;
-  nom:string;
+  id: number | undefined;
+  nom: string | undefined;
 
-  constructor(id:number, nom:string) {
-    this.id = id;
-    this.nom = nom;
+  constructor(id:number|undefined = undefined, nom:string|undefined = undefined) {
+    if(id!=undefined)this.id = id;
+    if(nom!=undefined)this.nom = nom;
   }
 
 }
