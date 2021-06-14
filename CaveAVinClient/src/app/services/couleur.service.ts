@@ -22,6 +22,10 @@ export class CouleurService {
     return this.couleurs[index];
   }
 
+  deserializeCouleur(object:any):Couleur{
+    return new Couleur(object.id,object.nom);
+  }
+
   deleteCouleur(index:number):Couleur[]{
     this.couleurs.splice(index,1);
     return this.couleurs;
