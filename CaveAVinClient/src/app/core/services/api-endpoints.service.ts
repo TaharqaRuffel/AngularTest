@@ -63,5 +63,9 @@ export class ApiEndpointsService {
     return urlBuilder.toString();
   }
 
+  public getRegionsEndpoint(){
+      return this.createUrl('regions');
+  }
+
   /* #endregion */
 }

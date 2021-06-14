@@ -31,9 +31,10 @@ export class FormBouteilleComponent implements OnInit {
   })
 
   listeCouleurs:Couleur[] = [];
-  listeRegions:Region[] = [];
+  listeRegions:any = [];
   isFormCouleur:boolean = false;
   isFormRegion:boolean = false;
+  region2 :any;
 
   constructor(private serviceBouteille: BouteillesService,
               private serviceCouleur:CouleurService,
@@ -41,11 +42,14 @@ export class FormBouteilleComponent implements OnInit {
               private apiHttpService: ApiHttpService,
               private apiEndpointsService: ApiEndpointsService)
   {
-    this.listeCouleurs = serviceCouleur.getCouleurs();
-    serviceRegion.getRegionsFromAPI().forEach(region=> this.listeRegions.push(this.serviceRegion.deserializeRegion(region)));
   }
 
   ngOnInit(): void {
+    this.listeCouleurs = this.serviceCouleur.getCouleurs();
+     this.serviceRegion.getRegionsFromAPI().forEach(region=>console.log(region));
+    this.apiHttpService.get(this.apiEndpointsService.getRegionsEndpoint()).subscribe(
+      (res) => this.listeRegions = res);
+
   }
 
   onSubmit(){
