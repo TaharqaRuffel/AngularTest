@@ -13,6 +13,9 @@ import { FormRegionComponent } from './composants/formulaires/form-region/form-r
 import { FormBouteilleComponent } from './composants/formulaires/form-bouteille/form-bouteille.component';
 import { AccueilComponent } from './composants/accueil/accueil.component';
 import {HttpClientModule} from "@angular/common/http";
+import {ApiHttpService} from "./core/services/api-http.service";
+import {ApiEndpointsService} from "./core/services/api-endpoints.service";
+import {Constants} from "./config/constants";
 
 
 @NgModule({
@@ -34,7 +37,15 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{provide:LOCALE_ID, useValue:'fr'}],
+  providers: [
+    {
+      provide:LOCALE_ID,
+      useValue:'fr'
+    },
+      ApiHttpService,
+      ApiEndpointsService,
+      Constants
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
