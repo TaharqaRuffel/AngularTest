@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegionService} from "../../services/region.service";
+import {Region} from "../../modeles/region";
 
 @Component({
   selector: 'app-region',
@@ -7,10 +8,15 @@ import {RegionService} from "../../services/region.service";
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
-  regions = [] as any;
+  regions = [] as Region[];
+  regions2: any;
 
-  constructor(private  serviceRegion:RegionService) {
-    this.regions = serviceRegion.getRegions();
+  constructor(private  serviceRegion: RegionService) {
+    serviceRegion.getRegionsFromAPI().subscribe(
+      result => result.forEach(
+        region =>this.regions.push(this.serviceRegion.deserializeRegion(region))
+      )
+    );
   }
 
   ngOnInit(): void {

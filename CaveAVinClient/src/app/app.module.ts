@@ -12,6 +12,7 @@ import { FormCouleursComponent } from './composants/formulaires/form-couleurs/fo
 import { FormRegionComponent } from './composants/formulaires/form-region/form-region.component';
 import { FormBouteilleComponent } from './composants/formulaires/form-bouteille/form-bouteille.component';
 import { AccueilComponent } from './composants/accueil/accueil.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AccueilComponent } from './composants/accueil/accueil.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [{provide:LOCALE_ID, useValue:'fr'}],
   bootstrap: [AppComponent]
