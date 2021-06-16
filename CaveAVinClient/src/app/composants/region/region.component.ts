@@ -9,14 +9,9 @@ import {Region} from "../../modeles/region";
 })
 export class RegionComponent implements OnInit {
   regions = [] as Region[];
-  regions2: any;
 
   constructor(private  serviceRegion: RegionService) {
-    serviceRegion.getRegionsFromAPI().subscribe(
-      result => result.forEach(
-        region =>this.regions.push(this.serviceRegion.deserializeRegion(region))
-      )
-    );
+    serviceRegion.getRegions().subscribe((data)=> this.regions = data);
   }
 
   ngOnInit(): void {

@@ -32,12 +32,8 @@ export class RegionService {
     return newRegion;
   }
 
-  getRegionsFromAPI():Observable<Region[]>{
+  getRegions():Observable<Region[]>{
     return this.apiHttpService.get<Region[]>(this.apiEndpointsService.getRegionsEndpoint());
-  }
-
-  getRegions():Region[]{
-     return this.regions;
   }
 
   getRegion(index:number):Region{

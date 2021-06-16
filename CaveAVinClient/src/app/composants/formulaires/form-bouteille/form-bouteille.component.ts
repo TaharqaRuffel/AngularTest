@@ -5,11 +5,7 @@ import {RegionService} from "../../../services/region.service";
 import {BouteillesService} from "../../../services/bouteilles.service";
 import {CouleurService} from "../../../services/couleur.service";
 import {Couleur} from "../../../modeles/couleur";
-import {ApiEndpointsService} from "../../../core/services/api-endpoints.service";
-import {ApiHttpService} from "../../../core/services/api-http.service";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
 import {Region} from "../../../modeles/region";
 
 @Component({
@@ -35,7 +31,6 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
 
   listeCouleurs:Couleur[] = [];
   listeRegions:Region[] = [];
-  regions$:Observable<any> = [] as any;
   isFormCouleur:boolean = false;
   isFormRegion:boolean = false;
 
@@ -46,14 +41,9 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
   {
   }
 
-
-
   ngOnInit(): void {
     this.listeCouleurs = this.serviceCouleur.getCouleurs();
-    this.serviceRegion.getRegionsFromAPI().subscribe((data)=> this.listeRegions = data)
-
-    //console.log(test);
-
+    this.serviceRegion.getRegions().subscribe((data)=> this.listeRegions = data);
   }
 
   onSubmit(){
