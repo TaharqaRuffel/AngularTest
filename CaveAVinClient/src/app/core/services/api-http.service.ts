@@ -1,6 +1,9 @@
 // Angular Modules
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs";
+
+import {Region} from "../../modeles/region";
 
 @Injectable()
 export class ApiHttpService {
@@ -9,7 +12,11 @@ export class ApiHttpService {
     private http: HttpClient) {
   }
 
-  public get(url: string, options?: any) {
+  public get<T>(url: string):Observable<T>{
+    return this.http.get<T>(url);
+  }
+
+  public getWithOptions(url: string, options?: any) {
     return this.http.get(url, options);
   }
 

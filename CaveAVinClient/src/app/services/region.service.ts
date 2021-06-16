@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Region} from "../modeles/region";
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
+import {ApiEndpointsService} from "../core/services/api-endpoints.service";
+import {Observable} from "rxjs";
+import {ApiHttpService} from "../core/services/api-http.service";
 
 const URL_GET_REGIONS = 'http://localhost:8080/regions';
 
@@ -17,7 +19,9 @@ export class RegionService {
     new Region( 5 ,'Bourgogne')
   ]
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiEndpointsService: ApiEndpointsService,
+              private apiHttpService: ApiHttpService ,
+  ) { }
 
   deserializeRegion(object:any):Region{
 
@@ -28,8 +32,8 @@ export class RegionService {
     return newRegion;
   }
 
-  getRegionsFromAPI(){
-    return this.http.get<Region[]>(URL_GET_REGIONS);
+  getRegionsFromAPI():Observable<Region[]>{
+    return this.apiHttpService.get<Region[]>(this.apiEndpointsService.getRegionsEndpoint());
   }
 
   getRegions():Region[]{

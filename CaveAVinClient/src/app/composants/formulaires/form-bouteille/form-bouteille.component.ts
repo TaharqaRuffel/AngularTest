@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Region} from "../../../modeles/region";
 import {Bouteille} from "../../../modeles/bouteille";
 import {RegionService} from "../../../services/region.service";
 import {BouteillesService} from "../../../services/bouteilles.service";
@@ -8,13 +7,17 @@ import {CouleurService} from "../../../services/couleur.service";
 import {Couleur} from "../../../modeles/couleur";
 import {ApiEndpointsService} from "../../../core/services/api-endpoints.service";
 import {ApiHttpService} from "../../../core/services/api-http.service";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
+import {Region} from "../../../modeles/region";
 
 @Component({
   selector: 'app-form-bouteille',
   templateUrl: './form-bouteille.component.html',
   styleUrls: ['./form-bouteille.component.css']
 })
-export class FormBouteilleComponent implements OnInit {
+export class FormBouteilleComponent implements OnInit, OnDestroy {
 
   bouteilleForm = new FormGroup({
     id : new FormControl(''),
@@ -31,24 +34,25 @@ export class FormBouteilleComponent implements OnInit {
   })
 
   listeCouleurs:Couleur[] = [];
-  listeRegions:any = [];
+  listeRegions:Region[] = [];
+  regions$:Observable<any> = [] as any;
   isFormCouleur:boolean = false;
   isFormRegion:boolean = false;
-  region2 :any;
+
 
   constructor(private serviceBouteille: BouteillesService,
               private serviceCouleur:CouleurService,
-              private serviceRegion:RegionService,
-              private apiHttpService: ApiHttpService,
-              private apiEndpointsService: ApiEndpointsService)
+              private serviceRegion:RegionService,)
   {
   }
 
+
+
   ngOnInit(): void {
     this.listeCouleurs = this.serviceCouleur.getCouleurs();
-     this.serviceRegion.getRegionsFromAPI().forEach(region=>console.log(region));
-    this.apiHttpService.get(this.apiEndpointsService.getRegionsEndpoint()).subscribe(
-      (res) => this.listeRegions = res);
+    this.serviceRegion.getRegionsFromAPI().subscribe((data)=> this.listeRegions = data)
+
+    //console.log(test);
 
   }
 
@@ -69,5 +73,8 @@ export class FormBouteilleComponent implements OnInit {
 
   switchFormRegion():void{
     this.isFormRegion = !this.isFormRegion;
+  }
+
+  ngOnDestroy(): void {
   }
 }
