@@ -37,6 +37,7 @@ export class RegionService {
   editRegion(modifiedRegion:Region){
     let httpOptions = {
       headers: new HttpHeaders({
+        'Access-Control-Allow-Origin':'*',
         'Content-Type': 'application/json'
       })
     };
