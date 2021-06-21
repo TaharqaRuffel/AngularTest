@@ -13,7 +13,7 @@ export class ApiEndpointsService {
     // Application Constants
     private constants: Constants
   ) {
-  }  /* #region URL CREATOR */
+  }  /* #regions URL CREATOR */
 
   // URL
   private createUrl(
@@ -66,6 +66,11 @@ export class ApiEndpointsService {
   public getRegionsEndpoint(){
       return this.createUrl('regions');
   }
+
+  public getRegionWithIdEndpoint(id:number ){
+    return this.createUrlWithPathVariables('regions',[id]);
+  }
+
 
   /* #endregion */
 }
