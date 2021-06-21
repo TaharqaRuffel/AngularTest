@@ -4,12 +4,14 @@ import {FormBouteilleComponent} from "./composants/formulaires/form-bouteille/fo
 import {AccueilComponent} from "./composants/accueil/accueil.component";
 import {BouteillesComponent} from "./composants/bouteilles/bouteilles.component";
 import {BouteilleComponent} from "./composants/bouteille/bouteille.component";
+import {RegionsComponent} from "./composants/regions/regions.component";
 
 const routes: Routes = [
   {path: '', component : AccueilComponent},
   {path: 'bouteilles', component : BouteillesComponent},
   {path: 'bouteilles/:id', component : BouteilleComponent},
   {path: 'bouteille/ajouter', component : FormBouteilleComponent},
+  {path: 'regions', component : RegionsComponent},
 
 ];
 
