@@ -9,13 +9,6 @@ import {ApiHttpService} from "../core/services/api-http.service";
   providedIn: 'root'
 })
 export class RegionService {
-  regions = [
-    new Region( 1 ,'Pays de la Loire'),
-    new Region( 2 ,'Bretagne'),
-    new Region( 3 ,'Bordeaux'),
-    new Region( 4 ,'Alsace'),
-    new Region( 5 ,'Bourgogne')
-  ]
 
   constructor(private apiEndpointsService: ApiEndpointsService,
               private apiHttpService: ApiHttpService ,
