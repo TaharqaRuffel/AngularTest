@@ -27,14 +27,12 @@ export class FormRegionComponent implements OnInit {
       this.soumis.emit(true);
     }else if(this.regionForm.valid){
       this.ajoutRegion(region);
-      this.soumis.emit(true);
     }
 
   }
 
   ajoutRegion(region:Region){
-    this.serviceRegion.addRegion(region);
-    console.log(this.serviceRegion.getRegions())
+    this.serviceRegion.addRegion(region).toPromise().then(r=>this.soumis.emit(true));
   }
 
   onCancelClick(){

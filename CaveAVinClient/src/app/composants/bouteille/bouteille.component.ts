@@ -11,7 +11,6 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./bouteille.component.css']
 })
 export class BouteilleComponent implements OnInit {
-
   @Input() bouteille:Bouteille = new Bouteille( 0 ,'Pas de bouteille',new Region(0,''),new Couleur(0,''),false,'2021',0);
   @Input() index = 0;
 

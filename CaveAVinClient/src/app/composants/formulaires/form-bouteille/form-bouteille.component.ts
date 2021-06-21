@@ -5,7 +5,6 @@ import {RegionService} from "../../../services/region.service";
 import {BouteillesService} from "../../../services/bouteilles.service";
 import {CouleurService} from "../../../services/couleur.service";
 import {Couleur} from "../../../modeles/couleur";
-import {Observable} from "rxjs";
 import {Region} from "../../../modeles/region";
 
 @Component({
@@ -33,7 +32,6 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
   listeRegions:Region[] = [];
   isFormCouleur:boolean = false;
   isFormRegion:boolean = false;
-
 
   constructor(private serviceBouteille: BouteillesService,
               private serviceCouleur:CouleurService,
