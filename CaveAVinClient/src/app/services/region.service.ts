@@ -26,9 +26,12 @@ export class RegionService {
     return this.apiHttpService.delete(this.apiEndpointsService.getRegionWithIdEndpoint(id));
   }
 
-  addRegion(newRegion:Region):Region[]{
-    this.regions.push(newRegion);
-    return this.regions;
+  addRegion(newRegion:Region):Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.apiHttpService.post(this.apiEndpointsService.getRegionsEndpoint(),JSON.stringify(newRegion),httpOptions);
+
   }
 
   editRegion(index:number,modifiedRegion:Region):Region[]{
