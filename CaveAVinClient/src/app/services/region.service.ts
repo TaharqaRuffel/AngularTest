@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Region} from "../modeles/region";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { HttpHeaders} from "@angular/common/http";
 import {ApiEndpointsService} from "../core/services/api-endpoints.service";
 import {Observable} from "rxjs";
 import {ApiHttpService} from "../core/services/api-http.service";
@@ -12,7 +12,6 @@ export class RegionService {
 
   constructor(private apiEndpointsService: ApiEndpointsService,
               private apiHttpService: ApiHttpService,
-              private http: HttpClient
   ) { }
 
   getRegions():Observable<Region[]>{
@@ -44,7 +43,7 @@ export class RegionService {
     };
     let id:number  = 0;
     if(modifiedRegion.id != undefined)id = modifiedRegion.id;
-    return this.http.put(this.apiEndpointsService.getRegionsEndpoint(),JSON.stringify(modifiedRegion),httpOptions);
+    return this.apiHttpService.put(this.apiEndpointsService.getRegionsEndpoint(),JSON.stringify(modifiedRegion),httpOptions);
   }
 
 }
