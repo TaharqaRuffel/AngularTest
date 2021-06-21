@@ -5,8 +5,6 @@ import {ApiEndpointsService} from "../core/services/api-endpoints.service";
 import {Observable} from "rxjs";
 import {ApiHttpService} from "../core/services/api-http.service";
 
-const URL_GET_REGIONS = 'http://localhost:8080/regions';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,26 +21,16 @@ export class RegionService {
               private apiHttpService: ApiHttpService ,
   ) { }
 
-  deserializeRegion(object:any):Region{
-
-    let newRegion = new Region();
-    newRegion.id = object.id;
-    newRegion.nom = object.nom;
-
-    return newRegion;
-  }
-
   getRegions():Observable<Region[]>{
     return this.apiHttpService.get<Region[]>(this.apiEndpointsService.getRegionsEndpoint());
   }
 
-  getRegion(index:number):Region{
-    return this.regions[index];
+  getRegion(id:number):Observable<Region>{
+    return this.apiHttpService.get<Region>(this.apiEndpointsService.getRegionWithIdEndpoint(id));
   }
 
-  deleteRegion(index:number):Region[]{
-    this.regions.splice(index,1);
-    return this.regions;
+  deleteRegion(id:number):Observable<any>{
+    return this.apiHttpService.delete(this.apiEndpointsService.getRegionWithIdEndpoint(id));
   }
 
   addRegion(newRegion:Region):Region[]{
