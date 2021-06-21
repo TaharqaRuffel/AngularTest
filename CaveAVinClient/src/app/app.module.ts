@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BouteilleComponent } from './composants/bouteille/bouteille.component';
 import { CouleurComponent } from './composants/couleur/couleur.component';
-import { RegionComponent } from './composants/region/region.component';
+import { RegionsComponent } from './composants/regions/regions.component';
 import { BouteillesComponent } from './composants/bouteilles/bouteilles.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormCouleursComponent } from './composants/formulaires/form-couleurs/form-couleurs.component';
@@ -16,6 +16,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {ApiHttpService} from "./core/services/api-http.service";
 import {ApiEndpointsService} from "./core/services/api-endpoints.service";
 import {Constants} from "./config/constants";
+import { FormMultiRegionComponent } from './composants/formulaires/form-multi-region/form-multi-region.component';
+import { FormRegionEditComponent } from './composants/formulaires/form-region-edit/form-region-edit.component';
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import {Constants} from "./config/constants";
     AppComponent,
     BouteilleComponent,
     CouleurComponent,
-    RegionComponent,
+    RegionsComponent,
     BouteillesComponent,
     FormCouleursComponent,
     FormRegionComponent,
     FormBouteilleComponent,
     AccueilComponent,
+    FormMultiRegionComponent,
+    FormRegionEditComponent,
   ],
   imports: [
     BrowserModule,
