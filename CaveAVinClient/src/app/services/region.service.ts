@@ -44,7 +44,7 @@ export class RegionService {
     };
     let id:number  = 0;
     if(modifiedRegion.id != undefined)id = modifiedRegion.id;
-    return this.http.put("http://localhost:8080/regions",JSON.stringify(modifiedRegion),httpOptions);
+    return this.http.put(this.apiEndpointsService.getRegionsEndpoint(),JSON.stringify(modifiedRegion),httpOptions);
   }
 
 }
