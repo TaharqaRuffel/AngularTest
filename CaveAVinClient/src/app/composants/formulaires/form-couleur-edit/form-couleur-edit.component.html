@@ -1,0 +1,16 @@
+<form (submit)="onSubmit(couleurForm.value)" [formGroup]="couleurForm" class="row mt-2"  >
+  <input type="hidden" name="couleurId" id="couleurId"
+         value="{{couleur.id}}"
+         formControlName="id"
+  />
+  <div class="col d-flex">
+    <input class="w-100" type="text" name="couleurNom" id="couleurNom"
+           formControlName="nom"
+           [class.is-invalid]="couleurForm.controls.nom.invalid"
+           [class.is-valid]="couleurForm.controls.nom.valid"/>
+  </div>
+  <div class="col d-flex justify-content-center">
+    <input type="submit" value="modifier" class="btn btn-primary ms-2"/>
+    <button (click)="onDelete(couleur.id)" class="btn btn-danger ms-2">supprimer</button>
+  </div>
+</form>
