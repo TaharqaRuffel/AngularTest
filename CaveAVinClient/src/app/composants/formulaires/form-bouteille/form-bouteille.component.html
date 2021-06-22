@@ -25,6 +25,7 @@
             </button>
           </div>
         </div>
+
         <div *ngIf="isFormRegion" class="ms-xxl-5">
           <app-form-region (soumis)="isFormRegion=!$event"></app-form-region>
         </div>
@@ -40,8 +41,8 @@
             </button>
           </div>
         </div>
-        <div *ngIf="isFormCouleur" class="ms-xxl-5">
-          <app-form-couleurs (soumis)="isFormCouleur=!$event"></app-form-couleurs>
+        <div *ngIf="isFormRegion" class="ms-xxl-5">
+          <app-form-region (soumis)="isFormRegion=!$event"></app-form-region>
         </div>
 
         <div class="form-group d-flex flex-row mb-2">
