@@ -28,10 +28,10 @@ export class FormCouleurEditComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    //this.serviceCouleur.deleteCouleur(id).toPromise().then(r => this.isUpdated.emit(true));
+    this.serviceCouleur.deleteCouleur(id).toPromise().then(r => this.isUpdated.emit(true));
   }
 
   onSubmit(couleur: Couleur) {
-    //this.serviceCouleur.editCouleur(couleur).toPromise().then(r => this.isUpdated.emit(true));
+    this.serviceCouleur.editCouleur(couleur).toPromise().then(r => this.isUpdated.emit(true));
   }
 }

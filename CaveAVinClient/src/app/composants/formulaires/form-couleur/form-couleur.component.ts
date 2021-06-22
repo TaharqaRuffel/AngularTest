@@ -27,7 +27,7 @@ export class FormCouleurComponent implements OnInit {
   }
 
   ajoutCouleur(couleur:Couleur){
-    this.serviceCouleur.addCouleur(couleur);
+    this.serviceCouleur.addCouleur(couleur).subscribe();
   }
 
   onCancelClick(){

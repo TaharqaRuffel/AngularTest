@@ -11,17 +11,16 @@ export class CouleursComponent implements OnInit {
   couleurs = [] as Couleur[];
   couleurResearched: Couleur | null = null;
 
-  constructor(private  serviceCouleur: CouleurService) {
-
+  constructor(private serviceCouleur: CouleurService) {
   }
 
   ngOnInit(): void {
     this.updateCouleurs();
-    //this.serviceCouleur.getCouleur(3).subscribe((data)=> this.couleurResearched = data)
+    this.serviceCouleur.getCouleur(3).subscribe((data)=> this.couleurResearched = data)
   }
 
   updateCouleurs(){
-    //this.serviceCouleur.getCouleurs().subscribe((data)=> this.couleurs = data);
+    this.serviceCouleur.getCouleurs().subscribe((data)=> this.couleurs = data);
   }
 
 }
