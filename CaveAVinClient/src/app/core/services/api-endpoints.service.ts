@@ -7,6 +7,9 @@ import {Constants} from 'src/app/config/constants';
 import {UrlBuilder} from "../../shared/Classes/url-builder";
 import {QueryStringParameters} from "../../shared/Classes/query-string-parameters";
 
+const END_POINT_REGION = 'regions';
+const END_POINT_COULEUR = 'couleurs';
+
 @Injectable()
 export class ApiEndpointsService {
   constructor(
@@ -64,12 +67,21 @@ export class ApiEndpointsService {
   }
 
   public getRegionsEndpoint(){
-      return this.createUrl('regions');
+      return this.createUrl(END_POINT_REGION);
   }
 
   public getRegionWithIdEndpoint(id:number ){
-    return this.createUrlWithPathVariables('regions',[id]);
+    return this.createUrlWithPathVariables(END_POINT_REGION,[id]);
   }
+
+  public getCouleursEndpoint(){
+    return this.createUrl(END_POINT_COULEUR);
+  }
+
+  public getCouleurWithIdEndpoint(id:number ){
+    return this.createUrlWithPathVariables(END_POINT_COULEUR,[id]);
+  }
+
 
 
   /* #endregion */
