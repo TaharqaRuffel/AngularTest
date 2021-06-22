@@ -12,33 +12,33 @@ export class CouleurService {
     new Couleur( 3 ,'rosé')
   ]
 
-  constructor() { }
-
-  getCouleurs(){
-    return this.couleurs;
+  getCouleurs():Observable<Couleur[]>{
+    return this.apiHttpService.get<Couleur[]>(this.apiEndpointsService.getCouleursEndpoint());
   }
 
-  getCouleur(index:number):Couleur{
-    return this.couleurs[index];
+  getCouleur(id:number):Observable<Couleur>{
+    return this.apiHttpService.get<Couleur>(this.apiEndpointsService.getCouleurWithIdEndpoint(id));
   }
 
-  deserializeCouleur(object:any):Couleur{
-    return new Couleur(object.id,object.nom);
+  deleteCouleur(id:number):Observable<any>{
+    return this.apiHttpService.delete(this.apiEndpointsService.getCouleurWithIdEndpoint(id));
   }
 
-  deleteCouleur(index:number):Couleur[]{
-    this.couleurs.splice(index,1);
-    return this.couleurs;
+  addCouleur(newCouleur:Couleur):Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.apiHttpService.post(this.apiEndpointsService.getCouleursEndpoint(),JSON.stringify(newCouleur),httpOptions);
   }
 
-  addCouleur(newCouleur:Couleur):Couleur[]{
-    this.couleurs.push(newCouleur);
-    return this.couleurs;
-  }
-
-  editCouleur(index:number,modifiedCouleur:Couleur):Couleur[]{
-    this.couleurs[index] = modifiedCouleur;
-    return this.couleurs;
+  editCouleur(modifiedCouleur:Couleur):Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin':'*',
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.apiHttpService.put(this.apiEndpointsService.getCouleursEndpoint(),JSON.stringify(modifiedCouleur),httpOptions);
   }
 
 }
