@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormCouleursComponent } from './form-couleurs.component';
+import { FormCouleurComponent } from './form-couleur.component';
 
 describe('FormCouleursComponent', () => {
-  let component: FormCouleursComponent;
-  let fixture: ComponentFixture<FormCouleursComponent>;
+  let component: FormCouleurComponent;
+  let fixture: ComponentFixture<FormCouleurComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormCouleursComponent ]
+      declarations: [ FormCouleurComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormCouleursComponent);
+    fixture = TestBed.createComponent(FormCouleurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

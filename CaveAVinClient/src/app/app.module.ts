@@ -18,6 +18,8 @@ import {ApiEndpointsService} from "./core/services/api-endpoints.service";
 import {Constants} from "./config/constants";
 import { FormMultiRegionComponent } from './composants/formulaires/form-multi-region/form-multi-region.component';
 import { FormRegionEditComponent } from './composants/formulaires/form-region-edit/form-region-edit.component';
+import { CouleursComponent } from './composants/couleurs/couleurs.component';
+import { FormCouleurEditComponent } from './composants/formulaires/form-couleur-edit/form-couleur-edit.component';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { FormRegionEditComponent } from './composants/formulaires/form-region-ed
     CouleurComponent,
     RegionsComponent,
     BouteillesComponent,
-    FormCouleursComponent,
+    FormCouleurComponent,
     FormRegionComponent,
     FormBouteilleComponent,
     AccueilComponent,
