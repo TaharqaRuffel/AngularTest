@@ -26,12 +26,12 @@
 
   <div class="is-flex is-flex-direction-row">
     <label class="col-form-label has-text-weight-bold">Couleur</label>
-    <p>{{bouteille.couleur.nom }}</p>
+    <p *ngIf="bouteille.couleur != undefined">{{bouteille.couleur.nom }}</p>
   </div>
 
   <div class="is-flex is-flex-direction-row">
     <label class="col-form-label has-text-weight-bold">Région</label>
-    <p>{{bouteille.region.nom }}</p>
+    <p *ngIf="bouteille.region != undefined">{{bouteille.region.nom }}</p>
   </div>
 
   <div class="is-flex is-flex-direction-row">
