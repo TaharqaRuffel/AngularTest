@@ -10,6 +10,8 @@ import {QueryStringParameters} from "../../shared/Classes/query-string-parameter
 const END_POINT_REGION = 'regions';
 const END_POINT_COULEUR = 'couleurs';
 
+const END_POINT_BOUTEILLE = 'bouteilles';
+
 @Injectable()
 export class ApiEndpointsService {
   constructor(
@@ -82,6 +84,13 @@ export class ApiEndpointsService {
     return this.createUrlWithPathVariables(END_POINT_COULEUR,[id]);
   }
 
+  public getBouteillesEndpoint(){
+    return this.createUrl(END_POINT_BOUTEILLE);
+  }
+
+  public getBouteilleWithIdEndpoint(id:number ){
+    return this.createUrlWithPathVariables(END_POINT_BOUTEILLE,[id]);
+  }
 
 
   /* #endregion */
