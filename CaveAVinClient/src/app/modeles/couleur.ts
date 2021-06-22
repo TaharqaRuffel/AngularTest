@@ -1,8 +1,8 @@
 export class Couleur {
-  id:number;
-  nom:string;
+  id:number|undefined;
+  nom:string|undefined;
 
-  constructor(id:number, nom:string) {
+  constructor(id:number|undefined = undefined, nom:string|undefined = undefined) {
     this.id = id;
     this.nom = nom;
   }
