@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Couleurs des vins : </h2>
+  <hr/>
+  <section>
+    <header>
+      <div class="col text-center">nom</div>
+      <div class="col text-center">action</div>
+    </header>
+    <div *ngFor="let couleur of couleurs" class="row mt-2"  >
+      <app-form-couleur-edit [couleur]="couleur" (isUpdated)="updateCouleurs()"></app-form-couleur-edit>
+    </div>
+
+  </section>
+  <hr/>
+  <app-form-couleur (soumis)="updateCouleurs()"></app-form-couleur>
+  <hr/>
+  <div *ngIf="couleurResearched != null">
+    <p>{{couleurResearched.id}}</p>
+    <p>{{couleurResearched.nom}}</p>
+  </div>
+
+</div>

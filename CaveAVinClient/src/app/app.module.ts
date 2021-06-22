@@ -8,7 +8,7 @@ import { CouleurComponent } from './composants/couleur/couleur.component';
 import { RegionsComponent } from './composants/regions/regions.component';
 import { BouteillesComponent } from './composants/bouteilles/bouteilles.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FormCouleursComponent } from './composants/formulaires/form-couleurs/form-couleurs.component';
+import { FormCouleurComponent } from './composants/formulaires/form-couleur/form-couleur.component';
 import { FormRegionComponent } from './composants/formulaires/form-region/form-region.component';
 import { FormBouteilleComponent } from './composants/formulaires/form-bouteille/form-bouteille.component';
 import { AccueilComponent } from './composants/accueil/accueil.component';
@@ -33,6 +33,8 @@ import { FormRegionEditComponent } from './composants/formulaires/form-region-ed
     AccueilComponent,
     FormMultiRegionComponent,
     FormRegionEditComponent,
+    CouleursComponent,
+    FormCouleurEditComponent,
   ],
   imports: [
     BrowserModule,
