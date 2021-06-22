@@ -10,7 +10,8 @@ import {CouleurService} from "../../../services/couleur.service";
 export class FormCouleurComponent implements OnInit {
   @Output() soumis = new EventEmitter();
 
-  couleurform = new Couleur(0,'')
+  couleurform = new Couleur();
+
   isCancel =false;
 
   constructor(private serviceCouleur:CouleurService) { }

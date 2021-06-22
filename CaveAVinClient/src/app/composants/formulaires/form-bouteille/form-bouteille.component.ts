@@ -40,7 +40,7 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.listeCouleurs = this.serviceCouleur.getCouleurs();
+    this.serviceCouleur.getCouleurs().toPromise().then((data) =>this.listeCouleurs = data);
     this.serviceRegion.getRegions().subscribe((data)=> this.listeRegions = data);
   }
 
