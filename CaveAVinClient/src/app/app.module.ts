@@ -20,7 +20,6 @@ import { FormMultiRegionComponent } from './composants/formulaires/form-multi-re
 import { FormRegionEditComponent } from './composants/formulaires/form-region-edit/form-region-edit.component';
 import { CouleursComponent } from './composants/couleurs/couleurs.component';
 import { FormCouleurEditComponent } from './composants/formulaires/form-couleur-edit/form-couleur-edit.component';
-import { FormBouteilleEditComponent } from './composants/formulaires/form-bouteille-edit/form-bouteille-edit.component';
 
 
 @NgModule({
@@ -38,7 +37,6 @@ import { FormBouteilleEditComponent } from './composants/formulaires/form-boutei
     FormRegionEditComponent,
     CouleursComponent,
     FormCouleurEditComponent,
-    FormBouteilleEditComponent,
   ],
   imports: [
     BrowserModule,
