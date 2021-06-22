@@ -5,6 +5,7 @@ import {AccueilComponent} from "./composants/accueil/accueil.component";
 import {BouteillesComponent} from "./composants/bouteilles/bouteilles.component";
 import {BouteilleComponent} from "./composants/bouteille/bouteille.component";
 import {RegionsComponent} from "./composants/regions/regions.component";
+import {CouleursComponent} from "./composants/couleurs/couleurs.component";
 
 const routes: Routes = [
   {path: '', component : AccueilComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'bouteilles/:id', component : BouteilleComponent},
   {path: 'bouteille/ajouter', component : FormBouteilleComponent},
   {path: 'regions', component : RegionsComponent},
+  {path: 'couleurs', component : CouleursComponent},
 
 ];
 
