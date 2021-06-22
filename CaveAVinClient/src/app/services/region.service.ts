@@ -41,8 +41,6 @@ export class RegionService {
         'Content-Type': 'application/json'
       })
     };
-    let id:number  = 0;
-    if(modifiedRegion.id != undefined)id = modifiedRegion.id;
     return this.apiHttpService.put(this.apiEndpointsService.getRegionsEndpoint(),JSON.stringify(modifiedRegion),httpOptions);
   }
 

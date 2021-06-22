@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Couleur} from "../modeles/couleur";
+import {ApiEndpointsService} from "../core/services/api-endpoints.service";
+import {ApiHttpService} from "../core/services/api-http.service";
+import {Observable} from "rxjs";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CouleurService {
 
-  couleurs = [
-    new Couleur( 1 ,'rouge'),
-    new Couleur( 2 ,'blanc'),
-    new Couleur( 3 ,'rosé')
-  ]
+  constructor(private apiEndpointsService: ApiEndpointsService,
+              private apiHttpService: ApiHttpService) { }
 
   getCouleurs():Observable<Couleur[]>{
     return this.apiHttpService.get<Couleur[]>(this.apiEndpointsService.getCouleursEndpoint());
