@@ -13,7 +13,8 @@ export class BouteilleComponent implements OnInit {
   @Input() bouteille:Bouteille = new Bouteille();
   @Input() index = 0;
 
-  constructor(private serviceBouteilles: BouteillesService,private routeActive: ActivatedRoute) { }
+  constructor(private serviceBouteilles: BouteillesService,
+              private routeActive: ActivatedRoute) { }
 
   ngOnInit(): void {
     if(this.index === 0 != null){
