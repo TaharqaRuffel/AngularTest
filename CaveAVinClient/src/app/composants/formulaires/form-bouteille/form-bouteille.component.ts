@@ -69,20 +69,13 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
     bouteille.couleur = couleurBouteille;
     if (this.bouteilleForm.valid) {
       if (this.isUpdate) {
-        this.modifierBouteille(bouteille);
+        this.serviceBouteille.editBouteille(bouteille).subscribe(d=>this.router.navigate(['bouteilles']));
+
       } else {
-        this.ajoutBouteille(bouteille);
+        this.serviceBouteille.addBouteille(bouteille).subscribe(d=>this.router.navigate(['bouteilles']));
       }
-      this.router.navigate(['bouteilles'])
+
     }
-  }
-
-  ajoutBouteille(bouteille: Bouteille):void {
-    this.serviceBouteille.addBouteille(bouteille).subscribe();
-  }
-
-  modifierBouteille(bouteille: Bouteille):void {
-    this.serviceBouteille.editBouteille(bouteille).subscribe();
   }
 
   switchFormCouleur(): void {
