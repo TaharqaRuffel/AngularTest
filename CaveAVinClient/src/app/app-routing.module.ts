@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'bouteilles', component : BouteillesComponent},
   {path: 'bouteilles/:id', component : BouteilleComponent},
   {path: 'bouteille/ajouter', component : FormBouteilleComponent},
+  {path: 'bouteille/editer/:id', component : FormBouteilleComponent},
   {path: 'regions', component : RegionsComponent},
   {path: 'couleurs', component : CouleursComponent},
 
