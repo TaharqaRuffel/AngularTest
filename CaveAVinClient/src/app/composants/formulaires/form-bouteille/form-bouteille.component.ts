@@ -54,11 +54,11 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
     console.log(this.serviceBouteille.getBouteilles());
   }
 
-  switchFormCouleur():void{
+  switchFormCouleur(): void {
     this.isFormCouleur = !this.isFormCouleur;
   }
 
-  switchFormRegion():void{
+  switchFormRegion():void {
     this.isFormRegion = !this.isFormRegion;
   }
 
