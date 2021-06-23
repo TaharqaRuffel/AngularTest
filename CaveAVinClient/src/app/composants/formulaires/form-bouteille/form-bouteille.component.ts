@@ -6,7 +6,7 @@ import {BouteillesService} from "../../../services/bouteilles.service";
 import {CouleurService} from "../../../services/couleur.service";
 import {Couleur} from "../../../modeles/couleur";
 import {Region} from "../../../modeles/region";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-bouteille',
@@ -14,8 +14,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./form-bouteille.component.css']
 })
 export class FormBouteilleComponent implements OnInit, OnDestroy {
-  @Input() bouteille: Bouteille = new Bouteille();
-  @Input() isUpdate: boolean = false;
+  isUpdate: boolean = false;
+  bouteille: Bouteille = new Bouteille();
 
   bouteilleForm = new FormGroup({
     id: new FormControl(''),
@@ -38,22 +38,31 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
 
   constructor(private serviceBouteille: BouteillesService,
               private serviceCouleur: CouleurService,
-              private serviceRegion: RegionService,private router: Router) {
+              private serviceRegion: RegionService,
+              private router: Router,
+              private routeActive:ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.serviceCouleur.getCouleurs().toPromise().then((data) => this.listeCouleurs = data);
     this.serviceRegion.getRegions().subscribe((data) => this.listeRegions = data);
-    if (this.isUpdate) {
-      this.bouteilleForm.setValue({
-        id: this.bouteille.id,
-        nom: this.bouteille.nom,
-        region: this.bouteille.nom,
-        couleur: this.bouteille.couleur?.id,
-        petillant: this.bouteille.petillant,
-        millesime: this.bouteille.region?.id,
-        quantite: this.bouteille.quantite,
-      })
+
+    let idBouteilleHtml = this.routeActive.snapshot.paramMap.get('id');
+
+    if (idBouteilleHtml!=null) {
+      let idBouteille = Number.parseInt(idBouteilleHtml);
+      this.serviceBouteille.getBouteille(idBouteille).subscribe((bouteille) => {
+        this.bouteilleForm.setValue({
+          id: bouteille.id,
+          nom: bouteille.nom,
+          region: bouteille.region?.id,
+          couleur: bouteille.couleur?.id,
+          petillant: bouteille.petillant,
+          millesime: bouteille.millesime,
+          quantite: bouteille.quantite,
+        })
+      });
+
     }
 
   }
