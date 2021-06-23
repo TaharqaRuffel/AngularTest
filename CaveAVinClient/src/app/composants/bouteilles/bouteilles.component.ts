@@ -26,4 +26,9 @@ export class BouteillesComponent implements OnInit {
     this.serviceBouteilles.deleteBouteille(id).toPromise().then((data)=>this.updateBouteilles());
   }
 
+  trierPar(facteur:string){
+    this.serviceBouteilles.getBouteilleTrierPar(facteur).toPromise().then((data)=>this.bouteilles = data);
+  }
+
+
 }

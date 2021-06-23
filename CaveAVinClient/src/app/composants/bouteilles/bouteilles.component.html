@@ -14,7 +14,8 @@
                  th:class="${(param.filtre != null) and (param.filtre[0] != '') ? 'btn btn-warning' : 'btn btn-warning disabled'}">
  			      	<span class="glyphicon glyphicon-trash"></span></a>
 			      </span>
-          <input type="search" name="filtre" id="filtre" placeholder="Filtre sur le nom, la couleur, la région du vin ..."
+          <input type="search" name="filtre" id="filtre"
+                 placeholder="Filtre sur le nom, la couleur, la région du vin ..."
                  class="form-control"
                  th:value="${param.filtre }"/>
           <span class="input-group-btn">
@@ -29,32 +30,55 @@
   <table class="table table-hover table-striped">
     <tr>
       <th></th>
-      <th class="text-center"><a href="trier?par=nA"><span class="glyphicon glyphicon-menu-down"></span></a>Nom<a
-        href="trier?par=nD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
-      <th class="text-center"><a href="trier?par=mA"><span class="glyphicon glyphicon-menu-down"></span></a>Millesime<a
-        href="trier?par=mD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
-      <th class="text-center"><a href="trier?par=pA"><span class="glyphicon glyphicon-menu-down"></span></a>Petillant<a
-        href="trier?par=pD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
-      <th class="text-center"><a href="trier?par=qA"><span class="glyphicon glyphicon-menu-down"></span></a>Quantite<a
-        href="trier?par=qD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
-      <th class="text-center"><a href="trier?par=coA"><span class="glyphicon glyphicon-menu-down"></span></a>Couleur<a
-        href="trier?par=coD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
-      <th class="text-center"><a href="trier?par=rA"><span class="glyphicon glyphicon-menu-down"></span></a>Region<a
-        href="trier?par=rD"><span class="glyphicon glyphicon-menu-up"></span></a></th>
+      <th class="text-center">
+        <i (click)="trierPar('nA')" class="bi bi-chevron-down"></i>
+        Nom
+        <i (click)="trierPar('nD')" class="bi bi-chevron-up"></i>
+      </th>
+      <th class="text-center">
+        <i (click)="trierPar('mA')" class="bi bi-chevron-down"></i>
+        Millesime
+        <i (click)="trierPar('mD')" class="bi bi-chevron-up"></i>
+      </th>
+      <th class="text-center">
+        <i (click)="trierPar('pA')" class="bi bi-chevron-down"></i>
+        Petillant
+        <i (click)="trierPar('pD')" class="bi bi-chevron-up"></i>
+      </th>
+      <th class="text-center">
+        <i (click)="trierPar('qA')" class="bi bi-chevron-down"></i>
+        Quantite
+        <i (click)="trierPar('qD')" class="bi bi-chevron-up"></i>
+      </th>
+      <th class="text-center">
+        <i (click)="trierPar('coA')" class="bi bi-chevron-down"></i>
+        Couleur
+        <i (click)="trierPar('coD')" class="bi bi-chevron-up"></i>
+      </th>
+      <th class="text-center">
+        <i (click)="trierPar('rA')" class="bi bi-chevron-down"></i>
+        Region
+        <i (click)="trierPar('rD')" class="bi bi-chevron-up"></i>
+      </th>
       <th></th>
       <th></th>
     </tr>
     <tr *ngFor=" let bouteille of bouteilles">
       <!--<app-bouteille [bouteille]= bouteille [index]=index></app-bouteille>-->
       <td> {{bouteille.id }}</td>
-      <td><a [routerLink]="['/bouteilles',bouteille.id]">{{bouteille.nom }}</a></td>
+      <td>
+        <a [routerLink]="['/bouteilles',bouteille.id]">{{bouteille.nom }}</a>
+      </td>
       <td class="text-center"> {{bouteille.millesime }}</td>
       <td class="text-center"> {{bouteille.petillant }}</td>
       <td class="text-center"> {{bouteille.quantite }}</td>
       <td class="text-center"> {{bouteille.couleur.nom }}</td>
       <td class="text-center"> {{bouteille.region.nom }}</td>
       <td class="text-center">
-        <button class="btn btn-primary" (click)="supprimerBouteille(bouteille.id)">Supprimer</button>
+        <a [routerLink]="['/bouteille/editer/',bouteille.id]">
+          <button class="btn btn-primary">Modifier</button>
+        </a>
+        <button class="btn btn-danger" (click)="supprimerBouteille(bouteille.id)">Supprimer</button>
       </td>
     </tr>
   </table>

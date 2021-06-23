@@ -29,6 +29,11 @@ export class BouteillesService {
     return this.apiHttpService.get<Bouteille>(this.apiEndpointsService.getBouteilleWithIdEndpoint(id));
   }
 
+  getBouteilleTrierPar(par:string):Observable<Bouteille>{
+    return this.apiHttpService.get<Bouteille>(this.apiEndpointsService.getBouteillesSortByEndpoint(par));
+  }
+
+
   deleteBouteille(id:number){
     return this.apiHttpService.delete(this.apiEndpointsService.getBouteilleWithIdEndpoint(id));
   }
