@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BouteillesService} from "../../services/bouteilles.service";
 import {Bouteille} from "../../modeles/bouteille";
-import {Region} from "../../modeles/region";
-import {Couleur} from "../../modeles/couleur";
+
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -11,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./bouteille.component.css']
 })
 export class BouteilleComponent implements OnInit {
-  @Input() bouteille:Bouteille = new Bouteille( 0 ,'Pas de bouteille',new Region(),new Couleur(),false,'2021',0);
+  @Input() bouteille:Bouteille = new Bouteille();
   @Input() index = 0;
 
   constructor(private serviceBouteilles: BouteillesService,private routeActive: ActivatedRoute) { }
@@ -27,6 +26,7 @@ export class BouteilleComponent implements OnInit {
 
       this.serviceBouteilles.getBouteille(idBouteille).toPromise().then((data)=>this.bouteille=data)
     }
+
   }
 
   supprimerBouteille(){

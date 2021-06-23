@@ -15,28 +15,27 @@ import {Region} from "../../../modeles/region";
 export class FormBouteilleComponent implements OnInit, OnDestroy {
 
   bouteilleForm = new FormGroup({
-    id : new FormControl(''),
-    nom : new FormControl('',[
+    id: new FormControl(''),
+    nom: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(50)
     ]),
-    region : new FormControl('',Validators.required),
-    couleur : new FormControl('',Validators.required),
-    petillant : new FormControl(''),
-    millesime : new FormControl('',[Validators.required,Validators.pattern("[0-2]{1}[0-9]{3}")]),
-    quantite : new FormControl('',Validators.required)
+    region: new FormControl('', Validators.required),
+    couleur: new FormControl('', Validators.required),
+    petillant: new FormControl(''),
+    millesime: new FormControl('', [Validators.required, Validators.pattern("[0-2]{1}[0-9]{3}")]),
+    quantite: new FormControl('', Validators.required)
   })
 
-  listeCouleurs:Couleur[] = [];
-  listeRegions:Region[] = [];
-  isFormCouleur:boolean = false;
-  isFormRegion:boolean = false;
+  listeCouleurs: Couleur[] = [];
+  listeRegions: Region[] = [];
+  isFormCouleur: boolean = false;
+  isFormRegion: boolean = false;
 
   constructor(private serviceBouteille: BouteillesService,
-              private serviceCouleur:CouleurService,
-              private serviceRegion:RegionService,)
-  {
+              private serviceCouleur: CouleurService,
+              private serviceRegion: RegionService,private router: Router) {
   }
 
   ngOnInit(): void {
@@ -63,6 +62,6 @@ export class FormBouteilleComponent implements OnInit, OnDestroy {
     this.isFormRegion = !this.isFormRegion;
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy():void {
   }
 }
