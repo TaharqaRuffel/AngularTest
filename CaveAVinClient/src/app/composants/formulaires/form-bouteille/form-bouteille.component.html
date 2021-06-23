@@ -1,12 +1,9 @@
 <div class="container text-center">
-  <p>form-bouteille works!</p>
   <h2>Le formulaire de la région</h2>
   <hr/>
   <div class="row justify-content-md-center">
     <div>
       <form (submit)="onSubmit()" [formGroup]="bouteilleForm">
-        <div>Mes données de formulaire{{bouteilleForm.value | json}}</div>
-        <hr/>
         <div class="form-group d-flex flex-row mb-2">
           <label class="form-label" for="nom">Nom</label>
           <input type="text" class="form-control" name="nom" id="nom" formControlName="nom"
