@@ -14,11 +14,13 @@ export class BouteillesComponent implements OnInit {
   constructor(private serviceBouteilles: BouteillesService ) { }
 
   ngOnInit(): void {
-    this.bouteilles = this.serviceBouteilles.getBouteilles();
+    this.serviceBouteilles.getBouteilles().toPromise().then((data)=>{
+      this.bouteilles = data;
+    });
   }
 
-  supprimerBouteille(index:number){
-    this.serviceBouteilles.deleteBouteille(index);
+  supprimerBouteille(id:number){
+    this.serviceBouteilles.deleteBouteille(id).subscribe();
   }
 
 }

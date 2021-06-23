@@ -26,11 +26,14 @@ export class BouteilleComponent implements OnInit {
         }
 
       }
+
+      this.serviceBouteilles.getBouteille(idBouteille).toPromise().then((data)=>this.bouteille=data)
     }
   }
 
   supprimerBouteille(){
-    this.serviceBouteilles.deleteBouteille(this.index);
+    let id = this.bouteille.id == undefined ? 0 : this.bouteille.id;
+    this.serviceBouteilles.deleteBouteille(id).subscribe();
   }
 
 }
