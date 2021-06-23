@@ -17,14 +17,12 @@ export class BouteilleComponent implements OnInit {
   constructor(private serviceBouteilles: BouteillesService,private routeActive: ActivatedRoute) { }
 
   ngOnInit(): void {
-    if(this.index === 0 ){
-      let idBouteille = this.routeActive.snapshot.paramMap.get('id');
-      for (let bouteille of this.serviceBouteilles.getBouteilles()) {
-        if (idBouteille == bouteille.id){
-          this.bouteille = bouteille;
-          break;
-        }
+    if(this.index === 0 != null){
+      let idBouteilleHtml = this.routeActive.snapshot.paramMap.get('id');
+      let idBouteille =0;
 
+      if(idBouteilleHtml != null){
+        idBouteille = Number.parseInt(idBouteilleHtml);
       }
 
       this.serviceBouteilles.getBouteille(idBouteille).toPromise().then((data)=>this.bouteille=data)
