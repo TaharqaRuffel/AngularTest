@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BouteillesService} from "../../services/bouteilles.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 
 @Component({
@@ -10,24 +11,31 @@ import {BouteillesService} from "../../services/bouteilles.service";
 export class BouteillesComponent implements OnInit {
 
   bouteilles = [] as any;
+  filtre: string = "";
+  filtreForm = new FormGroup(
+    {
+              filtre: new FormControl('')
+            })
 
-  constructor(private serviceBouteilles: BouteillesService ) { }
+  constructor(private serviceBouteilles: BouteillesService) {
+  }
 
   ngOnInit(): void {
     this.updateBouteilles();
   }
 
-  updateBouteilles(){
-    this.serviceBouteilles.getBouteilles().toPromise().then((data)=>{
+  updateBouteilles() {
+    this.serviceBouteilles.getBouteilles().toPromise().then((data) => {
       this.bouteilles = data;
     });
   }
-  supprimerBouteille(id:number){
-    this.serviceBouteilles.deleteBouteille(id).toPromise().then((data)=>this.updateBouteilles());
+
+  supprimerBouteille(id: number) {
+    this.serviceBouteilles.deleteBouteille(id).toPromise().then((data) => this.updateBouteilles());
   }
 
-  trierPar(facteur:string){
-    this.serviceBouteilles.getBouteilleTrierPar(facteur).toPromise().then((data)=>this.bouteilles = data);
+  trierPar(facteur: string) {
+    this.serviceBouteilles.getBouteillesTrierPar(facteur).toPromise().then((data) => this.bouteilles = data);
   }
 
   filtrerPar(filtre:string) {

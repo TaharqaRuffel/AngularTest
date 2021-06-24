@@ -4,7 +4,6 @@ import {RegionService} from "./region.service";
 import {CouleurService} from "./couleur.service";
 import {ApiEndpointsService} from "../core/services/api-endpoints.service";
 import {ApiHttpService} from "../core/services/api-http.service";
-import {Region} from "../modeles/region";
 import {Observable} from "rxjs";
 import {HttpHeaders} from "@angular/common/http";
 
@@ -29,7 +28,7 @@ export class BouteillesService {
     return this.apiHttpService.get<Bouteille>(this.apiEndpointsService.getBouteilleWithIdEndpoint(id));
   }
 
-  getBouteilleTrierPar(par:string):Observable<Bouteille>{
+  getBouteillesTrierPar(par:string):Observable<Bouteille>{
     return this.apiHttpService.get<Bouteille>(this.apiEndpointsService.getBouteillesSortByEndpoint(par));
   }
 
