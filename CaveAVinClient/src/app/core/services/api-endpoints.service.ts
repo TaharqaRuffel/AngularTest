@@ -91,6 +91,9 @@ export class ApiEndpointsService {
   public getBouteilleWithIdEndpoint(id:number ){
     return this.createUrlWithPathVariables(END_POINT_BOUTEILLE,[id]);
   }
+  public getBouteillesWithFiltreEndpoint(filtre:string ){
+    return this.createUrlWithQueryParameters(END_POINT_BOUTEILLE,(qs)=>qs.push('filtre',filtre));
+  }
   public getBouteillesSortByEndpoint(chaine:string ){
     return this.createUrlWithPathVariables(END_POINT_BOUTEILLES_TRIEES,[chaine]);
   }

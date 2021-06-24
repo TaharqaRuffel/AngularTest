@@ -4,23 +4,19 @@
     <span class="p-2 bd-highlight badge btn-primary gros pull-right">{{bouteilles.length}}</span>
   </div>
   <br>
-  <form action="lister" method="GET" class="form-horizontal">
-    <div class="form-group is-flex" id="blocFiltre">
-      <label id="labelFiltre" for="filtre" class="col-xs-2 col-form-label">Filtre :</label>
+  <form (submit)="filtrerPar(filtreForm.value.filtre)" class="form-horizontal" [formGroup]="filtreForm">
+    <div class="form-group d-flex justify-content-end align-items-stretch mb-3" id="blocFiltre">
+      <label id="labelFiltre" for="filtre" class="">Filtre :</label>
       <div class="flex-fill">
         <div class="input-group">
-			      <span class="input-group-btn">
-			      	<a href="lister"
-                 th:class="${(param.filtre != null) and (param.filtre[0] != '') ? 'btn btn-warning' : 'btn btn-warning disabled'}">
- 			      	<span class="glyphicon glyphicon-trash"></span></a>
-			      </span>
+          <span class="input-group-text">
+            <i class="bi bi-trash" (click)="updateBouteilles()"></i>
+          </span>
           <input type="search" name="filtre" id="filtre"
                  placeholder="Filtre sur le nom, la couleur, la région du vin ..."
                  class="form-control"
-                 th:value="${param.filtre }"/>
-          <span class="input-group-btn">
-			        <button class="btn btn-info" type="submit">Envoyer</button>
-			      </span>
+                 formControlName="filtre"/>
+          <button class="btn btn-info" type="submit">Envoyer</button>
         </div><!-- /input-group -->
 
       </div>

@@ -30,5 +30,11 @@ export class BouteillesComponent implements OnInit {
     this.serviceBouteilles.getBouteilleTrierPar(facteur).toPromise().then((data)=>this.bouteilles = data);
   }
 
+  filtrerPar(filtre:string) {
+    console.log(filtre);
+    if (filtre != "") {
+      this.serviceBouteilles.getBouteillesFiltrerPar(filtre).toPromise().then((data) => this.bouteilles = data);
+    }
+  }
 
 }
